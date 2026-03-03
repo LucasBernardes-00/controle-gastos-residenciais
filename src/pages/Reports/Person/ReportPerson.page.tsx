@@ -8,6 +8,7 @@ export function ReportPersonPage() {
   const { showErrors } = useErrorModal()
   const [personsBalance, setPersonsBalance] = useState<inPersonBalanceDTO[]>([])
 
+  // Buscando o relatório, relacionando Pessoa com as transações para exibir o saldo por pessoa
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,6 +22,7 @@ export function ReportPersonPage() {
     fetchData()
   }, [])
 
+  // Calculando o total geral
   const grandTotal = useMemo(() => {
     return personsBalance.reduce(
       (acc, curr) => ({
@@ -32,6 +34,7 @@ export function ReportPersonPage() {
     );
   }, [personsBalance]);
 
+  // Formatando o valor para moeda brasileira
   const formatCurrency = (value: number) => {
     return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   };

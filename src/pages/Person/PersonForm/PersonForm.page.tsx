@@ -14,6 +14,9 @@ export function PersonFormPage() {
     birthday: ""
   })
 
+  /*
+    Método que busca a pessoa pelo id e para preencher o formulário.
+  */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,11 +38,15 @@ export function PersonFormPage() {
     fetchData()
   }, [id])
 
+  // Método que lida com a mudança dos campos do formulário.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  /*
+    Método que lida com o envio do formulário. Seja para cadastrar um novo ou alterar uma existente.
+  */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {

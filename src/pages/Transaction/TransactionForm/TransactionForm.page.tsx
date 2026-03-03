@@ -30,6 +30,9 @@ export function TransactionFormPage() {
     personId: ""
   })
 
+  /*
+    Método que busca as dependências (categorias e pessoas), para montar o campo select, e busca a transação pelo id, se existir, para preencher o formulário.
+  */
   useEffect(() => {
     const fetchDependencies = async () => {
       try {
@@ -69,6 +72,7 @@ export function TransactionFormPage() {
     fetchTransaction()
   }, [id])
 
+  // Método que lida com a mudança dos campos do formulário.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     
@@ -80,6 +84,7 @@ export function TransactionFormPage() {
     setFormData(prev => ({ ...prev, [name]: newValue }))
   }
 
+  // Método que lida com o envio do formulário. Seja para cadastrar um novo ou alterar uma existente.
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {

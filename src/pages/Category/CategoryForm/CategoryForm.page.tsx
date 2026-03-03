@@ -21,6 +21,9 @@ export function CategoryFormPage() {
     goal: eGoal.DESPESA as eGoal
   })
 
+  /*
+    Método que busca a categoria pelo id e para preencher o formulário.
+  */
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
@@ -42,6 +45,7 @@ export function CategoryFormPage() {
     fetchData()
   }, [id])
 
+  // Método que lida com a mudança dos campos do formulário.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
 
@@ -50,6 +54,9 @@ export function CategoryFormPage() {
     setFormData(prev => ({ ...prev, [name]: newValue }))
   }
 
+  /*
+    Método que lida com o envio do formulário. Seja para cadastrar um novo ou alterar uma existente.
+  */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {

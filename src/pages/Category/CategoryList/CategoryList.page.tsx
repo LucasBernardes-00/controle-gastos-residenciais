@@ -10,6 +10,9 @@ export function CategoryListPage() {
   const { showErrors } = useErrorModal()
   const [categories, setCategories] = useState<Category[]>([])
 
+  /*
+    Método que busca todas as categorias e atualiza o estado categories, para montar a listagem.
+  */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,10 +26,12 @@ export function CategoryListPage() {
     fetchData()
   }, [])
 
+  // Método que redireciona para a página de edição da categoria.
   const handleEdit = (id: string) => {
     navigate(`/category/edit/${id}`)
   }
 
+  // Método que deleta a categoria.
   const handleDelete = async (id: string) => {
     try {
       await categoryService.delete(id)

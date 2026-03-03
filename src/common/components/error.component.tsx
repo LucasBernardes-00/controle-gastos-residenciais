@@ -7,6 +7,14 @@ interface ErrorContextData {
 
 const ErrorContext = createContext<ErrorContextData>({} as ErrorContextData);
 
+/*
+  Componente que fornece o contexto de erros para a aplicação.
+  - children: ReactNode -> Elemento que será renderizado na rota.
+  - errors: string[] -> Lista de erros que serão exibidos no modal.
+  - isOpen: boolean -> Se true, o modal será exibido.
+  - showErrors: (errors: string[]) => void -> Função que exibe o modal de erros.
+  - closeMenu: () => void -> Função que fecha o modal de erros.
+*/
 export const ErrorProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [errors, setErrors] = useState<string[]>([])
   const [isOpen, setIsOpen] = useState(false)

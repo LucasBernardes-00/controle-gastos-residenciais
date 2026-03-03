@@ -10,6 +10,9 @@ export function PersonPage() {
   const { showErrors } = useErrorModal()
   const [persons, setPersons] = useState<Person[]>([])
 
+  /*
+    Método que busca todas as pessoas e atualiza o estado persons, para montar a listagem.
+  */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,10 +27,16 @@ export function PersonPage() {
     fetchData()
   }, [])
 
+  /*
+    Método que redireciona para a página de edição da pessoa.
+  */
   const handleEdit = (id: string) => {
     navigate(`/person/edit/${id}`)
   }
 
+  /*
+    Método que deleta a pessoa.
+  */
   const handleDelete = async (id: string) => {
     try {
       await personService.delete(id)

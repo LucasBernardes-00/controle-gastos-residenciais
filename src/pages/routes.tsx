@@ -9,6 +9,15 @@ import { TransactionListPage } from "./Transaction/TransactionList/TransactionLi
 
 const Dashboard = () => <h1>🏠 Dashboard Principal</h1>
 
+/*
+  Configuração das rotas da aplicação.
+  - index: true -> Rota padrão da aplicação.
+  - path: string -> Caminho da rota.
+  - element: JSX.Element -> Elemento que será renderizado na rota.
+  - label: string -> Label que será exibido no menu.
+  - hideInMenu: boolean -> Se true, a rota não será exibida no menu.
+  - group: string -> Grupo que será exibido no menu.
+*/
 export const routesConfig = [
   { index: true, element: <Dashboard />, label: "Dashboard" },
   { path: "person", element: <PersonPage />, label: "Pessoa" },

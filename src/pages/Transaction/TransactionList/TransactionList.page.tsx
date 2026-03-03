@@ -10,6 +10,7 @@ export function TransactionListPage() {
   const { showErrors } = useErrorModal()
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
+  // Método que busca todas as transações para listagem
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,10 +27,14 @@ export function TransactionListPage() {
     fetchData()
   }, [])
 
+  // Método que redireciona para a página de edição da transação.
   function handleEdit(Id: string): void {
     navigate(`/transaction/edit/${Id}`)
   }
 
+  /*
+    Método que deleta a transação.
+  */
   async function handleDelete(Id: string): Promise<void> {
     try {
       await transactionService.delete(Id)
