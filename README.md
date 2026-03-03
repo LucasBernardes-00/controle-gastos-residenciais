@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# 📑 Sistema de Controle Financeiro Residencial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de gerenciamento financeiro residencial desenvolvido com React e TypeScript. A aplicação permite o controle de pessoas, categorias e transações, oferecendo relatórios detalhados de saldo e totais por entidade.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
+React 19 (Functional Components & Hooks)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+TypeScript (Tipagem forte para modelos e DTOs)
 
-## React Compiler
+React Router Dom v6 (Navegação avançada com Rotas Aninhadas e Outlet)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Context API (Gerenciamento de Modais de Erro globais)
 
-## Expanding the ESLint configuration
+CSS3 (Layout responsivo com Flexbox)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🏗️ Arquitetura do Projeto
+O projeto segue uma estrutura organizada por responsabilidades, facilitando a manutenção e escalabilidade:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+/common: Componentes reutilizáveis (Modais, Inputs) e DTOs.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+/models: Classes de domínio (Person, Category, Transaction) com lógica de negócio.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+/services: Camada de abstração para chamadas de API (person.service, etc).
+
+/pages: Componentes de página que representam as rotas da aplicação.
+
+Layout Pattern: Uso de um componente de Layout fixo com um menu lateral dinâmico.
+
+## 🛠️ Funcionalidades Principais
+1. Gestão de Entidades
+
+- Pessoas (Persons): Cadastro, edição e listagem.
+- Categorias (Categories): Organização por tipo (Receita, Despesa ou Ambas).
+- Transações (Transactions): Lançamentos financeiros vinculando pessoas e categorias.
+
+2. Consultas e Relatórios
+
+- Totals by Person: Relatório detalhado exibindo:
+- Total de Receitas individual.
+- Total de Despesas individual.
+- Saldo Líquido.
+- Grand Total: Soma geral de todas as movimentações do sistema no rodapé da tabela.
+
+3. Experiência do Usuário (UX)
+
+- Menu Lateral Retrátil: Grupo de "Consultas Totais" com efeito accordion.
+- Global Error Handling: Modal centralizado para exibição de erros de validação da API.
+- Navegação Semântica: Uso de IDs na URL para fluxos de edição e criação.
+
+## 🔧 Como Rodar o Projeto
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/finance-control-react.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instale as dependências:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Instale o React Router:
+
+```bash
+npm install react-router-dom
+```
+
+4. Inicie o servidor de desenvolvimento:
+
+```bash
+Inicie o servidor de desenvolvimento:
+```
+
+## 📝 Licença
+Este projeto está sob a licença MIT.
