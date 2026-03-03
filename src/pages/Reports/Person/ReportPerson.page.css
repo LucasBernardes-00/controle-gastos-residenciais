@@ -1,0 +1,29 @@
+/* Alinhamento de valores numéricos */
+.text-right {
+  text-align: right !important;
+}
+
+/* Cores financeiras */
+.text-income {
+  color: #27ae60; /* Verde */
+}
+
+.text-expense {
+  color: #e74c3c; /* Vermelho */
+}
+
+/* Estilo do Rodapé (Grand Total) */
+.table-footer-totals {
+  background-color: #f8f9fa;
+  border-top: 2px solid #2c3e50;
+}
+
+.table-footer-totals td {
+  padding: 15px !important;
+  font-size: 1.1rem;
+}
+
+/* Efeito de zebra na tabela para facilitar a leitura */
+.report-table tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
